@@ -1,0 +1,13 @@
+{% extends 'SouthsideApp/Layout.html' %}
+    {% block content %}
+
+    <h1>The Form</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            {{TheForm.as_p}}
+            <input type="submit" value="Submit">
+        </form>
+
+
+    {% endblock %}

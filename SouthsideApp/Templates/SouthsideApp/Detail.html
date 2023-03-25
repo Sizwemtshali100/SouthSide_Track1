@@ -1,0 +1,22 @@
+{% extends 'SouthsideApp/Layout.html' %}
+    {% block content %}
+
+    <h1>The Details</h1>
+    <a href="{% url 'TheForm' %}">The Form</a>
+    <br>
+    <br>
+    <a href="{% url 'Edit' TheList_details.id %}">Edit</a>
+    <br>
+    {{TheList_details.Date}}<br>
+    {{TheList_details.Policy_Number}}<br>
+    {{TheList_details.Case_Number}}<br>
+    {{TheList_details.AVS_Check}}<br>
+    {{TheList_details.Caller_ID}}<br>
+    {{TheList_details.QA_Agent}}<br>
+    {{TheList_details.Sales_Agent}}<br>
+    {{TheList_details.Call_duration}}<br>
+    {{TheList_details.QA_Correct}}<br>
+    {{TheList_details.HIV_Required}}<br>
+    {{TheList_details.Comment}}<br>
+
+    {% endblock %}

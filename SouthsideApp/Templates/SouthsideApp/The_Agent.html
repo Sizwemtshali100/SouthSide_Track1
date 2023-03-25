@@ -1,0 +1,14 @@
+{% extends 'SouthsideApp/Layout.html' %}
+    {% block content %}
+
+    <h1>The Agent Page</h1>
+    <form action="" method="POST">
+        {% csrf_token%}
+        {% for agents_work in work %}
+        {{agents_work}}
+        {% endfor %}
+        
+        <input type="submit" value="Login">
+    </form>
+
+    {% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'SouthsideApp/Layout.html' %}
+    {% block content %}
+
+    <h1>The login Form</h1>
+    <form action="" method="POST">
+        {% csrf_token%}
+        
+        <input type="text" name="username" placeholder="username">
+        <br>
+        <br>
+        <input type="password" name="password" placeholder="Password">
+
+
+        {% for The_messsage in messages %}
+            {{The_messsage}}
+        {% endfor %}
+
+        <input type="submit" value="Login">
+    </form>
+
+    {% endblock %}

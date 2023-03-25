@@ -1,0 +1,49 @@
+{% extends 'SouthsideApp/Layout.html' %}
+    {% block content %}
+
+    <h1>The List</h1>
+    <a href="{% url 'TheForm' %}">The Form</a>
+    <br>
+    <br>
+    <br>
+    <table class="table table-striped">
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Policy_Number
+            </th>
+            <th>
+                Case_Number
+            </th>
+            <th>
+                Sales_Agent
+            </th>
+            <th>
+                QA_Agent
+            </th>
+        </tr>
+        {% for List in TheList %}       
+        <tr>
+            <td>
+                {{List.Date}}
+            </td>
+            <td>
+                {{List.Policy_Number}}
+            </td>
+            <td>
+                <a href="{% url 'Detail' List.id  %}">{{List.Case_Number}}<br></a>
+            </td>
+            <td>
+                {{List.Sales_Agent}}
+            </td>
+            <td>
+                {{List.QA_Agent}}
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    {% endblock %}

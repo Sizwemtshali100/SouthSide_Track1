@@ -1,0 +1,16 @@
+{% extends 'SouthsideApp/Layout.html' %}
+    {% block content %}
+
+    <h1>The Registration Form</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% for RegisterUser in RegistrationForm %}
+            {{RegisterUser.label}}
+            {{RegisterUser}}<br><br>
+        {% endfor %}
+        <br>
+        {{RegistrationForm.errors}}
+        <input type="submit" value="Register">
+    </form>
+
+    {% endblock %}
