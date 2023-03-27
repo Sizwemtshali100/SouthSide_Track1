@@ -1,10 +1,13 @@
 {% extends 'SouthsideApp/Layout.html' %}
+
     {% block content %}
 
-    <h1>The List</h1>
-    <a href="{% url 'TheForm' %}">The Form</a>
-    <br>
-    <br>
+    {% include 'SouthsideApp/Nav_managers.html' %}
+    <center>
+        <h1>Audits</h1>
+
+    </center> 
+    <hr>
     <br>
     <table class="table table-striped">
         <tr>

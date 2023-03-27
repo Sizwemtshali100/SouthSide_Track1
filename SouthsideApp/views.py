@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from . forms import QACForms, CreateUserForm  #, QA_Agent_creation
 from . models import QACModels #, QAAgent
 from django.contrib.auth.forms import UserCreationForm
@@ -8,6 +8,7 @@ from django.contrib import messages
 from . decorators import unauthenticated_user,allowed_users , Manager_only
 from django.contrib.auth.models import Group
 from django.contrib.auth.models import User
+import csv
 
 
 # Create your views here.
@@ -99,14 +100,56 @@ def Adding_Agent(request):
     return render(request, 'SouthsideApp/Adding_Agent.html',
                   {'Agent_Adding':Agent_Adding})
 '''
-#@login_required(login_url='LoginPage')
+@login_required(login_url='LoginPage')
 #@Manager_only
 def The_Agent(request):
     Agents_work = request.user
-
     work = QACModels.objects.filter(QA_Agent=Agents_work)
     return render(request, 'SouthsideApp/The_Agent.html',
                   {'work':work})
+
+def Download_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['content-disposition'] = 'attachment; filename=Outcome_QA.csv'
+
+    writer = csv.writer(response)
+    Downloading_all = QACModels.objects.all()
+    writer.writerow(['Date',
+                     'QA_Agent',
+                     'Policy_Number',
+                     'Case_Number',
+                    'AVS_Check',
+                    'Caller_ID',
+                    'Sales_Agent',
+                    'Call_duration',
+                    'Start_date',
+                    'Premium',
+                    'Debit_date',
+                    'Cover_amount',
+                    'QA_Correct',
+                    'KPA',
+                    'HIV_Required',
+                    'Comment',
+                    ])
+    for download in Downloading_all:
+        writer.writerow([download.Date,
+                    download.QA_Agent,
+                    download.Policy_Number,
+                    download.Case_Number,
+                    download.AVS_Check,
+                    download.Caller_ID,
+                    download.Sales_Agent,                   
+                    download.Call_duration,
+                    download.Start_date,
+                    download.Premium,
+                    download.Debit_date,
+                    download.Cover_amount,
+                    download.QA_Correct,
+                    download.KPA,
+                    download.HIV_Required,
+                    download.Comment,
+                    ])
+    return response 
 
 
  

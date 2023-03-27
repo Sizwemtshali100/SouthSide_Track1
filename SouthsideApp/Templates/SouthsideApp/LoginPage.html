@@ -1,21 +1,35 @@
-{% extends 'SouthsideApp/Layout.html' %}
-    {% block content %}
+<style>
+    .container{
+    align-content: center;
+}
 
-    <h1>The login Form</h1>
-    <form action="" method="POST">
-        {% csrf_token%}
-        
-        <input type="text" name="username" placeholder="username">
-        <br>
-        <br>
-        <input type="password" name="password" placeholder="Password">
+h1{
+    font-family: sans-serif;
+}
+
+</style>
+
+<div class="container">
+    <center>
+        <h1>The login Form</h1>
+        <form action="" method="POST">
+            {% csrf_token%}
+            
+            <input type="text" class="form-control" name="username" placeholder="username">
+            <br>
+            <br>
+            <input type="password" class="form-control" name="password" placeholder="Password">
+            <br>
+            <br>
+            <input type="submit" value="Login" class="btn btn-outline-success">
 
 
-        {% for The_messsage in messages %}
-            {{The_messsage}}
-        {% endfor %}
 
-        <input type="submit" value="Login">
-    </form>
+            {% for The_messsage in messages %}
+                {{The_messsage}}
+            {% endfor %}
 
-    {% endblock %}
+        </form>
+    </center>
+
+</div>

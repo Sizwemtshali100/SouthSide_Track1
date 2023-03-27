@@ -42,9 +42,9 @@ class QACModels(models.Model):
     Debit_date = models.CharField(max_length=10)
     Cover_amount = models.CharField(max_length=10)
     QA_Correct = models.CharField(choices=QA_Outcome, max_length=5)
-    KPA = models.CharField(default=True, choices=KPA_Outcome, max_length=15)
+    KPA = models.CharField(choices=KPA_Outcome, max_length=15)
     HIV_Required = models.CharField(choices=HIV_Test,  max_length=3)
-    Comment = models.TextField(max_length=200, default=True)
+    Comment = models.TextField(max_length=200)
     def __str__(self):
         return self.Policy_Number
    

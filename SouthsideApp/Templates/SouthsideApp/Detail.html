@@ -1,22 +1,50 @@
 {% extends 'SouthsideApp/Layout.html' %}
     {% block content %}
+    {% include 'SouthsideApp/Nav_agent.html' %}
 
+      <center>
     <h1>The Details</h1>
-    <a href="{% url 'TheForm' %}">The Form</a>
-    <br>
     <br>
     <a href="{% url 'Edit' TheList_details.id %}">Edit</a>
     <br>
-    {{TheList_details.Date}}<br>
-    {{TheList_details.Policy_Number}}<br>
-    {{TheList_details.Case_Number}}<br>
-    {{TheList_details.AVS_Check}}<br>
-    {{TheList_details.Caller_ID}}<br>
-    {{TheList_details.QA_Agent}}<br>
-    {{TheList_details.Sales_Agent}}<br>
-    {{TheList_details.Call_duration}}<br>
-    {{TheList_details.QA_Correct}}<br>
-    {{TheList_details.HIV_Required}}<br>
-    {{TheList_details.Comment}}<br>
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            {{TheList_details.Policy_Number}}<br>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            {{TheList_details.Date}}<br>
+          </li>
+          <li class="list-group-item">
+            {{TheList_details.Case_Number}}<br>
+          </li>
+          <li class="list-group-item">
+            {{TheList_details.AVS_Check}}<br>
+          </li>
+          <li class="list-group-item">
+            {{TheList_details.Caller_ID}}<br>
+        </li>
+          <li class="list-group-item">
+            {{TheList_details.QA_Agent}}<br>
+        </li>
+          <li class="list-group-item">
+            {{TheList_details.Sales_Agent}}<br>
+        </li>
+          <li class="list-group-item">
+            {{TheList_details.Call_duration}}<br>
+        </li>
+          <li class="list-group-item">
+            {{TheList_details.QA_Correct}}<br>
+        </li>
+          <li class="list-group-item">
+            {{TheList_details.HIV_Required}}<br> 
+        </li>
+          <li class="list-group-item">
+            {{TheList_details.Comment}}<br>
+
+        </li>
+        </ul>
+      </div>
+    </center>
 
     {% endblock %}

@@ -1,14 +1,54 @@
 {% extends 'SouthsideApp/Layout.html' %}
+
+
     {% block content %}
 
-    <h1>The Agent Page</h1>
-    <form action="" method="POST">
-        {% csrf_token%}
-        {% for agents_work in work %}
-        {{agents_work}}
-        {% endfor %}
+    {% include 'SouthsideApp/Nav_agent.html' %}
+    <center>
+      <h1>The Agent Page</h1>
+    </center>
+    <hr>
+        <form action="" method="POST">
+            {% csrf_token%}
+            <table class="table table-striped">
+                <tr>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Policy_Number
+                    </th>
+                    <th>
+                        Case_Number
+                    </th>
+                    <th>
+                        Sales_Agent
+                    </th>
+                    <th>
+                        QA_Agent
+                    </th>
+                </tr>
+                {% for agents_work in work %}
+                <tr>
+                    <td>
+                        {{agents_work.Date}}
+                    </td>
+                    <td>
+                        {{agents_work.Policy_Number}}
+                    </td>
+                    <td>
+                        <a href="{% url 'Detail' agents_work.id  %}">{{agents_work.Case_Number}}<br></a>
+                    </td>
+                    <td>
+                        {{agents_work.Sales_Agent}}
+                    </td>
+                    <td>
+                        {{agents_work.QA_Agent}}
+                    </td>
+                </tr>
+                {% endfor %}
         
-        <input type="submit" value="Login">
-    </form>
+            </table>
+       </form>
 
     {% endblock %}

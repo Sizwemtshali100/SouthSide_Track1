@@ -1,12 +1,17 @@
 {% extends 'SouthsideApp/Layout.html' %}
     {% block content %}
 
+    {% include 'SouthsideApp/Nav_agent.html' %}
+
     <h1>The Form</h1>
+    <hr>
+    <br>
+
         <form action="" method="POST">
             {% csrf_token %}
 
             {{TheForm.as_p}}
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" class="btn btn-primary">
         </form>
 
 
