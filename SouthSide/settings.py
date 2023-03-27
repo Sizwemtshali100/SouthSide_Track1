@@ -141,7 +141,6 @@ STATIC_FILES = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-=======
 """
 Django settings for SouthSide project.
 
@@ -285,4 +284,3 @@ STATIC_FILES = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
->>>>>>> bbcacf196138c042353d11c7ac6f26086c451b0d
