@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-mb#_3f_iqqf=exv8atmk@!bdn(ya2&12%vkkm-%ugoz3tw5vw8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['southside.herokuapp.com']
 
 
 # Application definition
@@ -74,12 +75,24 @@ WSGI_APPLICATION = 'SouthSide.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd7839jqckbighd',
+        'USER': 'zpiyldzizwyryb',
+        'PASSWORD': '5a5ea57e07041215f34560cadb77320c312bb397732c0fc7d5a0fc9501b513d9',
+        'HOST': 'ec2-54-208-11-146.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
+
 
 
 # Password validation
@@ -121,6 +134,7 @@ STATIC_URL = 'static/'
 STATIC_FILES = [ 
     BASE_DIR / '/static/'
 ]
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
